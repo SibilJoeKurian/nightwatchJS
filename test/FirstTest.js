@@ -2,22 +2,22 @@
 module.exports = {
 
     'Successful login': function (browser) {
-
-        browser
-            .url('http://automationpractice.com/index.php')
+        const page=browser.page.automationPageObjects()
+        page
+            .navigate()
             .assert.titleContains('My Store')
             .useXpath()
-            .click("//a[@class='login']")
+            .click('@loginButton')
             .assert.titleContains('Login - My Store')
-            .setValue('//input[@id="email"]', 'abclulu4@gmail.com')
-            .setValue('//input[@id="passwd"]', '12345678')
-            .click('//button[@id="SubmitLogin"]')
+            .setValue('@emailTextBox', 'abclulu4@gmail.com')
+            .setValue('@passwordTextBox', '12345678')
+            .click('@submitButton')
             .assert.titleContains('My account - My Store').pause(10000)
-            .click("//a[@title='Log me out']")
+            .click('@logOutButton')
             
     },
 
-    'Unscusseful login': function (browser) {
+    'Unscusseful login':''+ function (browser) {
         browser
             .url('http://automationpractice.com/index.php')
             .assert.titleContains('My Store')
@@ -30,7 +30,7 @@ module.exports = {
             .waitForElementPresent('//li[contains(.,"Authentication failed")]')
             .assert.elementPresent('//li[contains(.,"Authentication failed")]').pause(10000);
     },
-    'Account Registeration': function (browser) {
+    'Account Registeration':''+ function (browser) {
         debugger
         browser
             .url('http://automationpractice.com/index.php')
