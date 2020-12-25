@@ -1,10 +1,6 @@
 
 module.exports = {
 
-
-
-
-
     'Successful login': function (browser) {
 
         browser
@@ -16,7 +12,7 @@ module.exports = {
             .setValue('//input[@id="email"]', 'abclulu4@gmail.com')
             .setValue('//input[@id="passwd"]', '12345678')
             .click('//button[@id="SubmitLogin"]')
-            .assert.titleContains('My account - My Store')
+            .assert.titleContains('My account - My Store').pause(10000)
             .click("//a[@title='Log me out']")
             
     },
@@ -32,9 +28,9 @@ module.exports = {
             .setValue('//input[@id="passwd"]', '1234567890000')
             .click('//button[@id="SubmitLogin"]')
             .waitForElementPresent('//li[contains(.,"Authentication failed")]')
-            .assert.elementPresent('//li[contains(.,"Authentication failed")]');
+            .assert.elementPresent('//li[contains(.,"Authentication failed")]').pause(10000);
     },
-    'Account Registeration':  function (browser) {
+    'Account Registeration': function (browser) {
         debugger
         browser
             .url('http://automationpractice.com/index.php')
@@ -43,7 +39,7 @@ module.exports = {
             .click("//a[@class='login']")
             .assert.titleContains('Login - My Store')
             .useXpath()
-            .setValue("//input[@id='email_create']", 'abclulu10@gmail.com')
+            .setValue("//input[@id='email_create']", 'abclulu21@gmail.com')
             .useXpath()
             .click("//button[@id='SubmitCreate']")
             .assert.containsText("//h1[@class='page-heading']", "CREATE AN ACCOUNT")
