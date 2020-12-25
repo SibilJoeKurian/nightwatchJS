@@ -1,11 +1,11 @@
-1608873481496	geckodriver	INFO	Listening on 127.0.0.1:4444
-1608873482123	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofilenzoJpd"
+1608877431121	geckodriver	INFO	Listening on 127.0.0.1:4444
+1608877431706	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofileL0LZS5"
 Can't find symbol 'eglSwapBuffersWithDamageEXT'.
 Can't find symbol 'eglSetDamageRegionKHR'.
 JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
-1608873485625	Marionette	INFO	Listening on port 51000
-1608873508997	Marionette	INFO	Stopped listening on port 51000
+1608877435320	Marionette	INFO	Listening on port 62726
+1608877454792	Marionette	INFO	Stopped listening on port 62726
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
