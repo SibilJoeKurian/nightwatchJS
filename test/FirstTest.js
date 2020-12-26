@@ -30,7 +30,7 @@ module.exports = {
             .waitForElementPresent('//li[contains(.,"Authentication failed")]')
             .assert.elementPresent('//li[contains(.,"Authentication failed")]').pause(10000);
     },
-    'Account Registeration':''+ function (browser) {
+    'Account Registeration': function (browser) {
         debugger
         browser
             .url('http://automationpractice.com/index.php')
@@ -39,7 +39,7 @@ module.exports = {
             .click("//a[@class='login']")
             .assert.titleContains('Login - My Store')
             .useXpath()
-            .setValue("//input[@id='email_create']", 'abclulu21@gmail.com')
+            .setValue("//input[@id='email_create']", 'abclulu22@gmail.com')
             .useXpath()
             .click("//button[@id='SubmitCreate']")
             .assert.containsText("//h1[@class='page-heading']", "CREATE AN ACCOUNT")
