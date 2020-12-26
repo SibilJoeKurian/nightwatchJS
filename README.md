@@ -10,3 +10,4 @@ A document file attached with screen shot of UI automation
 
 Note:
 Before adding a user add a new value to the user email or it will fail
+
