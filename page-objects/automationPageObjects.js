@@ -14,10 +14,14 @@ module.exports = {
             selector:'//input[@id="passwd"]',
             locateStrategy:'xpath'
         },
-        submitButton:{
+        submitLoginButton:{
             selector:'//button[@id="SubmitLogin"]',
             locateStrategy:'xpath'
         },
+        logout:{
+            selector:"//a[@title='Log me out']",
+            locateStrategy:'xpath'
+        }
 
     },
     commands: [{}]

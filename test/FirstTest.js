@@ -6,27 +6,27 @@ module.exports = {
         page
             .navigate()
             .assert.titleContains('My Store')
-            .useXpath()
             .click('@loginButton')
             .assert.titleContains('Login - My Store')
             .setValue('@emailTextBox', 'abclulu4@gmail.com')
             .setValue('@passwordTextBox', '12345678')
-            .click('@submitButton')
-            .assert.titleContains('My account - My Store').pause(10000)
-            .click('@logOutButton')
+            .click('@submitLoginButton')
+            .assert.titleContains('My account - My Store')
+            .click('@logout')
             
     },
 
-    'Unscusseful login':''+ function (browser) {
-        browser
-            .url('http://automationpractice.com/index.php')
+    'Unscusseful login': function (browser) {
+        const page=browser.page.automationPageObjects()
+        page
+            .navigate()
             .assert.titleContains('My Store')
-            .useXpath()
-            .click("//a[@class='login']")
+            .click("@loginButton")
             .assert.titleContains('Login - My Store')
-            .setValue('//input[@id="email"]', 'abclulu6@gmail.com')
-            .setValue('//input[@id="passwd"]', '1234567890000')
-            .click('//button[@id="SubmitLogin"]')
+            .setValue('@emailTextBox', 'abclulu6@gmail.com')
+            .setValue('@passwordTextBox', '1234567890000')
+            .click('@submitLoginButton')
+            .useXpath()
             .waitForElementPresent('//li[contains(.,"Authentication failed")]')
             .assert.elementPresent('//li[contains(.,"Authentication failed")]').pause(10000);
     },
