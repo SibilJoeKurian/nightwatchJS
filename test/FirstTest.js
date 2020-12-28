@@ -1,46 +1,32 @@
 
 module.exports = {
-
-    'Successful login': function (browser) {
-        const page=browser.page.automationPageObjects()
-        page
-            .navigate()
+    beforeEach: function (browser) {
+        const page = browser.page.automationPageObjects()
+        page.navigate()
             .assert.titleContains('My Store')
             .click('@loginButton')
             .assert.titleContains('Login - My Store')
-            .setValue('@emailTextBox', 'abclulu4@gmail.com')
-            .setValue('@passwordTextBox', '12345678')
-            .click('@submitLoginButton')
-            .assert.titleContains('My account - My Store')
-            .click('@logout')
-            
-    },
 
-    'Unscusseful login': function (browser) {
-        const page=browser.page.automationPageObjects()
-        page
-            .navigate()
-            .assert.titleContains('My Store')
-            .click("@loginButton")
-            .assert.titleContains('Login - My Store')
-            .setValue('@emailTextBox', 'abclulu6@gmail.com')
-            .setValue('@passwordTextBox', '1234567890000')
-            .click('@submitLoginButton')
-            .useXpath()
-            .waitForElementPresent('//li[contains(.,"Authentication failed")]')
-            .assert.elementPresent('//li[contains(.,"Authentication failed")]').pause(10000);
     },
-    'Account Registeration': function (browser) {
+    'Successful login': function (browser) {
+        const page = browser.page.automationPageObjects()
+        page
+            .login('abclulu4@gmail.com','12345678')
+            .checkLoginSuccessfull()
+            .logout()
+
+    },                            
+    'Unscusseful login': function (browser) {
+        const page = browser.page.automationPageObjects()
+        page
+            .login('abclulu6@gmail.com','1234567890000')
+            .checkAuthentication()    
+        },
+    'Account Registeration': + function (browser) {
         debugger
         browser
-            .url('http://automationpractice.com/index.php')
-            .assert.titleContains('My Store')
             .useXpath()
-            .click("//a[@class='login']")
-            .assert.titleContains('Login - My Store')
-            .useXpath()
-            .setValue("//input[@id='email_create']", 'abclulu22@gmail.com')
-            .useXpath()
+            .setValue("//input[@id='email_create']", 'abclulu24@gmail.com')
             .click("//button[@id='SubmitCreate']")
             .assert.containsText("//h1[@class='page-heading']", "CREATE AN ACCOUNT")
             .click("//input[@type='radio'][@id='id_gender1']")
