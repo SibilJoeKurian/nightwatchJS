@@ -1,5 +1,5 @@
 # nightwatchJS
 
-To Run the project &nbsp;
-npm install
+To Run the project <br />
+npm install <br />
 npm start
