@@ -1,0 +1,20 @@
+{
+  "name": "Hivision",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nightwatch",
+    "test": "nightwatch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "geckodriver": "^1.20",
+    "nightwatch": "^1.5.1"
+  },
+  "dependencies": {
+    "chromedriver": "^87.0.4"
+  }
+}

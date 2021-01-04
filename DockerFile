@@ -9,7 +9,6 @@
 #Dockerfile to build an image for different versions of chrome
 #Pull ubuntu 16.04 base image
 FROM ubuntu:16.04
-MAINTAINER Qxf2 Services
  
 #Step 2
 #Essential tools and xvfb
@@ -61,4 +60,6 @@ RUN apt-get -y install nodejs
 
 WORKDIR /projects 
 ADD . /projects/
+WORKDIR /projects/
+RUN npm install chromedriver
 RUN npm install
