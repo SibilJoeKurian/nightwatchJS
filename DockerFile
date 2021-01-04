@@ -1,0 +1,39 @@
+FROM ubuntu:16.04
+
+RUN apt-get update; apt-get clean
+
+
+# Install x11vnc.
+RUN apt-get install -y x11vnc
+
+# Install xvfb.
+RUN apt-get install -y xvfb
+
+# Install fluxbox.
+RUN apt-get install -y fluxbox
+
+# Install wget.
+RUN apt-get install -y wget
+
+# Install wmctrl.
+RUN apt-get install -y wmctrl
+
+# Set the Chrome repo.
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+
+# Install Chrome.
+RUN apt-get update && apt-get -y install google-chrome-stable
+
+#node
+RUN apt-get -y install curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
+RUN apt-get -y install nodejs
+
+
+WORKDIR /app
+ADD page-objects /app/page-objects
+ADD test /app/test
+ADD package.json /app/package.json
+ADD nightwatch.json /app/nightwatch.json
+RUN npm install
